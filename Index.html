@@ -50,31 +50,46 @@
             background: #3b82f6;
             border-radius: 10px;
         }
+        
+        /* 為了防止底部按鈕遮擋內容，給 body 一點底部間距 */
+        .pb-safe {
+            padding-bottom: 80px;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 pb-safe">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full z-[100] glass-nav">
         <div class="max-w-6xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white text-lg md:text-xl">
+            <!-- 需求 1: 頂端 Logo 照片 -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="logo.png" alt="阿宏水電 Logo" class="h-10 w-auto md:h-12 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <!-- 如果 logo.png 載入失敗，會顯示下方的備用圖示 -->
+                <div class="hidden w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-lg items-center justify-center text-white">
                     <i class="fas fa-wrench"></i>
                 </div>
                 <span class="text-xl md:text-2xl font-black text-blue-900 tracking-tight">阿宏水電</span>
-            </div>
+            </a>
             
-            <div class="hidden md:flex items-center space-x-10 font-bold text-gray-600">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6 font-bold text-gray-600">
                 <a href="#why-me" class="hover:text-blue-600 transition-colors">公司承諾</a>
                 <a href="#services" class="hover:text-blue-600 transition-colors">服務項目</a>
-                <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 shadow-lg shadow-blue-200 transition-all active:scale-95">
+                <a href="#contact" class="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 shadow-lg transition-all active:scale-95">
                     與我聯絡
-		<a href="https://whko0923.github.io/Homepage/留言1.html" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 shadow-lg shadow-blue-200 transition-all active:scale-95">
-                    留下資料
+                </a>
+                <!-- 需求 2: 頂部導覽列也增加一個留下資料按鈕 -->
+                <a href="留言1.html" class="bg-purple-600 text-white px-5 py-2.5 rounded-full hover:bg-purple-700 shadow-lg transition-all active:scale-95">
+                    我要留言
                 </a>
             </div>
 
-            <div class="md:hidden flex items-center">
+            <!-- Mobile Action -->
+            <div class="md:hidden flex items-center space-x-3">
+                <a href="留言1.html" class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center shadow-lg active:scale-90">
+                    <i class="fas fa-edit text-sm"></i>
+                </a>
                 <a href="https://line.me/ti/p/0953515238" class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
                     <i class="fab fa-line text-xl"></i>
                 </a>
@@ -107,7 +122,7 @@
                         </div>
                     </a>
                     <a href="https://line.me/ti/p/0953515238" class="bg-green-500 text-white px-6 py-4 md:px-10 md:py-5 rounded-2xl text-lg md:text-xl font-bold hover:bg-green-600 transition-all flex items-center justify-center shadow-2xl shadow-green-500/20">
-                        <i class="fab fa-line mr-3 text-2xl"></i> 加 LINE聯絡
+                        <i class="fab fa-line mr-3 text-2xl"></i> 加 LINE 聯絡
                     </a>
                 </div>
             </div>
@@ -181,7 +196,7 @@
         </div>
     </section>
 
-    <!-- Contact & Footer -->
+    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-32">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
             <div class="bg-blue-900 rounded-3xl md:rounded-[40px] p-8 md:p-20 text-white relative overflow-hidden shadow-2xl">
@@ -196,7 +211,6 @@
                     </div>
                     
                     <div class="flex flex-col space-y-4 md:space-y-6">
-                        <!-- Phone Card --> 
                         <a href="tel:0953515238" class="w-full bg-blue-500 border border-white/10 text-white p-5 md:p-6 rounded-2xl md:rounded-3xl hover:bg-blue-600 transition-all flex items-center shadow-xl">
                             <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center mr-4 md:mr-6 flex-shrink-0">
                                 <i class="fas fa-phone-alt text-lg md:text-xl"></i>
@@ -205,9 +219,7 @@
                                 <p class="text-[10px] text-blue-300 font-bold uppercase tracking-widest">諮詢專線</p>
                                 <p class="text-lg md:text-xl font-black tracking-wider">0953-515-238</p>
                             </div>
-                        
                         </a>
-                        <!-- LINE Card -->
                         <a href="https://line.me/ti/p/0953515238" class="group w-full bg-green-500 text-white p-5 md:p-6 rounded-2xl md:rounded-3xl flex items-center justify-between hover:bg-green-600 transition-all shadow-xl">
                             <div class="flex items-center">
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mr-4 md:mr-6 flex-shrink-0">
@@ -215,7 +227,7 @@
                                 </div>
                                 <div class="text-left">
                                     <p class="text-[10px] text-white/60 font-bold uppercase tracking-widest">點擊加入 LINE</p>
-                                    <p class="text-lg md:text-xl font-black">ID: 0953515238
+                                    <p class="text-lg md:text-xl font-black">ID: 0953515238</p>
                                 </div>
                             </div>
                             <i class="fas fa-chevron-right text-white/40 group-hover:translate-x-1 transition-transform hidden sm:block"></i>
@@ -227,12 +239,28 @@
             <footer class="mt-12 md:mt-20 text-center text-gray-400">
                 <p class="font-bold text-gray-600 mb-2 text-base md:text-lg">阿宏水電個人工作室</p>
                 <p class="text-sm md:text-base">合理報價 · 全心服務</p>
-                <div class="mt-8 text-[10px] md:text-xs text-gray-300 border-t pt-8 leading-loose">
-                    &copy; 2026 阿宏水電. 版權所有. <br class="md:hidden"> 
+                
+                <!-- 需求 2: 底部增加一個顯眼的留下資料按鈕 -->
+                <div class="mt-10">
+                    <a href="留言1.html" class="inline-flex items-center space-x-2 bg-purple-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-purple-700 shadow-xl transition-all active:scale-95">
+                        <i class="fas fa-edit"></i>
+                        <span>我要留言</span>
+                    </a>
+                </div>
+
+                <div class="mt-12 text-[10px] md:text-xs text-gray-300 border-t pt-8 leading-loose">
+                    &copy; 2026 阿宏水電. 版權所有. 
                 </div>
             </footer>
         </div>
     </section>
+
+    <!-- 行動版固定底部按鈕 (Mobile Only) -->
+    <div class="fixed bottom-6 left-0 w-full px-6 z-[90] md:hidden">
+        <a href="留言1.html" class="w-full bg-purple-600 text-white py-4 rounded-2xl shadow-2xl flex items-center justify-center font-bold text-lg border-2 border-white/20">
+            <i class="fas fa-edit mr-2"></i> 立即留下資料
+        </a>
+    </div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
