@@ -25,14 +25,20 @@
 </head>
 
 <!-- 需求 1: 頂端 Logo 照片 -->
-            <a href="#" class="flex items-center space-x-3">
-                <img src="https://lh3.googleusercontent.com/d/1RmtqRvUs_QiHEGrfGhbphG30uZrLzNeY" alt="水電阿宏 Logo" class="h-10 w-auto md:h-12 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <!-- 如果 logo.png 載入失敗，會顯示下方的備用圖示 -->
-                <div class="hidden w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-lg items-center justify-center text-white">
-                    <i class="fas fa-wrench"></i>
-                </div>
-                <span class="text-xl md:text-2xl font-black text-blue-900 tracking-tight">水電阿宏</span>
-            </a>
+             <a href="#" class="flex items-center space-x-3">
+    <!-- 使用 iframe 嵌入動畫 Logo -->
+    <div class="h-20 w-20 md:h-24 md:w-24 overflow-hidden">
+        <iframe 
+            src="logo.html" 
+            class="w-full h-full border-none pointer-events-none"
+            scrolling="no"
+        ></iframe>
+    </div>
+
+    <!-- 備用圖示（當 iframe 無法顯示時，雖然機率極低） -->
+    <span class="text-xl md:text-2xl font-black text-blue-900 tracking-tight">水電阿宏</span>
+</a>
+
 
 <body class="bg-transparent md:p-4">
     <div class="max-w-md mx-auto bg-white p-8 rounded-[2rem] shadow-xl shadow-blue-900/5 border border-gray-100">
